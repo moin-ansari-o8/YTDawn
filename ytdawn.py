@@ -95,11 +95,11 @@ class YTDawn:
             if "path" not in item:
                 item["path"] = ""
                 modified = True
-            
+
             if "title" not in item:
                 item["title"] = ""
                 modified = True
-            
+
             if "filesize" not in item:
                 item["filesize"] = 0
                 modified = True
@@ -253,21 +253,25 @@ class YTDawn:
                     # Extract percentage and speed
                     percent_match = re.search(r"(\d+(?:\.\d+)?%)", line)
                     speed_match = re.search(r"at\s+([\d.]+\s*[KMG]iB/s)", line)
-                    
+
                     if percent_match:
                         progress = percent_match.group(1)
                         speed = speed_match.group(1) if speed_match else ""
-                        
+
                         if progress != last_progress:
                             # Simple progress bar
                             percent = float(progress.rstrip("%"))
                             bar_length = 30
                             filled = int(bar_length * percent / 100)
                             bar = "█" * filled + "░" * (bar_length - filled)
-                            
+
                             # Show speed on the right if available
                             if speed:
-                                print(f"\r[{bar}] {progress} @ {speed}", end="", flush=True)
+                                print(
+                                    f"\r[{bar}] {progress} @ {speed}",
+                                    end="",
+                                    flush=True,
+                                )
                             else:
                                 print(f"\r[{bar}] {progress}", end="", flush=True)
                             last_progress = progress
@@ -354,11 +358,12 @@ class YTDawn:
             pending_count = sum(
                 1 for item in links if not item.get("is_downloaded", False)
             )
-            
+
             # Count how many need metadata fetch
             need_fetch = sum(
-                1 for item in links 
-                if not item.get("is_downloaded", False) 
+                1
+                for item in links
+                if not item.get("is_downloaded", False)
                 and (not item.get("title") or not item.get("filesize"))
             )
 
@@ -374,11 +379,11 @@ class YTDawn:
 
                 link = item["link"]
                 processed += 1
-                
+
                 # Check if we already have metadata cached
                 title = item.get("title", "")
                 filesize = item.get("filesize", 0)
-                
+
                 # Only fetch if metadata is missing
                 if not title or not filesize:
                     fetched += 1
@@ -388,7 +393,7 @@ class YTDawn:
                     )
                     # Fetch metadata silently
                     title, filesize = self.get_video_metadata(link)
-                    
+
                     # Update metadata in JSON
                     idx, _ = self.find_link(link, media_type)
                     if idx is not None:
@@ -460,7 +465,7 @@ class YTDawn:
             for item in pending_items:
                 link = item["link"]
                 title = item["title"]
-                
+
                 # Update path BEFORE downloading (in case of interruption)
                 idx, _ = self.find_link(link, media_type)
                 if idx is not None:
@@ -635,34 +640,34 @@ class YTDawn:
             print(f"✅ Download path updated to: {new_path}")
 
     # ===== CLI-specific methods =====
-    
+
     def list_links_cli(self, media_type):
         """List links for CLI mode (no menu, just output)"""
         links = self.data.get(media_type, {}).get("links", [])
-        
+
         if not links:
             print(f"No {media_type} links found.")
             return
-        
+
         print(f"\n{media_type.upper()} Links ({len(links)} total):")
         print("-" * 60)
-        
+
         for i, item in enumerate(links, 1):
             status = "✅" if item.get("is_downloaded", False) else "⏳"
             title = item.get("title", "")
-            
+
             if title:
                 display_title = title if len(title) <= 50 else title[:50] + "..."
                 print(f"{i}. {status} {display_title}")
             else:
                 print(f"{i}. {status} {item['link']}")
-    
+
     def add_link_cli(self, url, media_type):
         """Add link via CLI (non-interactive)"""
         if not url:
             print("❌ Error: No URL provided")
             sys.exit(1)
-        
+
         self.add_or_update_link(url, media_type)
         print(f"✅ Added {media_type} link: {url}")
         self.save_json()
@@ -675,22 +680,34 @@ def main():
         parser = argparse.ArgumentParser(
             description="YTDawn - YouTube Audio/Video Downloader"
         )
-        
-        parser.add_argument('-la', '--list-audio', action='store_true',
-                          help='List all audio links')
-        parser.add_argument('-lv', '--list-video', action='store_true',
-                          help='List all video links')
-        parser.add_argument('-da', '--download-audio', action='store_true',
-                          help='Download all pending audio files')
-        parser.add_argument('-dv', '--download-video', action='store_true',
-                          help='Download all pending video files')
-        parser.add_argument('-aa', '--add-audio', metavar='URL',
-                          help='Add an audio link')
-        parser.add_argument('-av', '--add-video', metavar='URL',
-                          help='Add a video link')
-        
+
+        parser.add_argument(
+            "-la", "--list-audio", action="store_true", help="List all audio links"
+        )
+        parser.add_argument(
+            "-lv", "--list-video", action="store_true", help="List all video links"
+        )
+        parser.add_argument(
+            "-da",
+            "--download-audio",
+            action="store_true",
+            help="Download all pending audio files",
+        )
+        parser.add_argument(
+            "-dv",
+            "--download-video",
+            action="store_true",
+            help="Download all pending video files",
+        )
+        parser.add_argument(
+            "-aa", "--add-audio", metavar="URL", help="Add an audio link"
+        )
+        parser.add_argument(
+            "-av", "--add-video", metavar="URL", help="Add a video link"
+        )
+
         args = parser.parse_args()
-        
+
         # Check if yt-dlp is installed
         try:
             subprocess.run(["yt-dlp", "--version"], capture_output=True, check=True)
@@ -704,7 +721,7 @@ def main():
             pass  # yt-dlp exists but returned non-zero, that's ok
 
         app = YTDawn()
-        
+
         # Handle CLI commands
         if args.list_audio:
             app.list_links_cli("audio")

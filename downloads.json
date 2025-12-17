@@ -31,23 +31,23 @@
       },
       {
         "link": "https://youtu.be/fQrTAn8fWwU?list=RDfQrTAn8fWwU",
-        "is_downloaded": false,
+        "is_downloaded": true,
         "format": "opus",
-        "path": "",
-        "title": "Heavenly Music  Relaxing Violin, Cello & Piano Instrumental  Alps 4k"
+        "path": "O:\\MSC\\RELAXED",
+        "title": "Heavenly Music 🎻 Relaxing Violin, Cello & Piano Instrumental 🎻 Alps 4k"
       },
       {
         "link": "https://youtu.be/0ebsbln62ZU?list=RD0ebsbln62ZU",
-        "is_downloaded": false,
+        "is_downloaded": true,
         "format": "opus",
-        "path": "",
+        "path": "O:\\MSC\\RELAXED",
         "title": "Chinese Zen Music: Bamboo flute, Erhu & Guzheng | Soothing Music @MoonlitMelodies-68s"
       },
       {
         "link": "https://youtu.be/S3eFxkxpe20?list=RDS3eFxkxpe20",
-        "is_downloaded": false,
+        "is_downloaded": true,
         "format": "opus",
-        "path": "",
+        "path": "O:\\MSC\\RELAXED",
         "title": "Echoes of Elegance – Dark Cello Reverie"
       }
     ]
