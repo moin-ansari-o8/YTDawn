@@ -1,0 +1,61 @@
+{
+  "audio": {
+    "links": [
+      {
+        "link": "https://youtu.be/hgUGe1cf3So",
+        "is_downloaded": true,
+        "format": "opus",
+        "path": "O:\\MSC\\RELAXED",
+        "title": "Ghibli Chill  Studying, coffee, reading, healing  Ghibli Music"
+      },
+      {
+        "link": "https://youtu.be/Pq6myR3y8ek?list=RDPq6myR3y8ek",
+        "is_downloaded": true,
+        "format": "opus",
+        "path": "O:\\MSC\\RELAXED",
+        "title": "One Piece Lofi Mix Vol.9 🏴‍☠️ | Relax, Sleep, Study, Chill [3 hour]"
+      },
+      {
+        "link": "https://youtu.be/XC71IzBpyCE?list=RDXC71IzBpyCE",
+        "is_downloaded": false,
+        "format": "opus",
+        "path": "",
+        "title": "/Celtic Music-God Hermes‘s classical concert-"
+      },
+      {
+        "link": "https://youtu.be/imLQUXjxGuk",
+        "is_downloaded": false,
+        "format": "opus",
+        "path": "",
+        "title": "Soothing, relaxing music reduces stress and stops thinking too much"
+      },
+      {
+        "link": "https://youtu.be/fQrTAn8fWwU?list=RDfQrTAn8fWwU",
+        "is_downloaded": false,
+        "format": "opus",
+        "path": "",
+        "title": "Heavenly Music  Relaxing Violin, Cello & Piano Instrumental  Alps 4k"
+      },
+      {
+        "link": "https://youtu.be/0ebsbln62ZU?list=RD0ebsbln62ZU",
+        "is_downloaded": false,
+        "format": "opus",
+        "path": "",
+        "title": "Chinese Zen Music: Bamboo flute, Erhu & Guzheng | Soothing Music @MoonlitMelodies-68s"
+      },
+      {
+        "link": "https://youtu.be/S3eFxkxpe20?list=RDS3eFxkxpe20",
+        "is_downloaded": false,
+        "format": "opus",
+        "path": "",
+        "title": "Echoes of Elegance – Dark Cello Reverie"
+      }
+    ]
+  },
+  "video": {
+    "links": []
+  },
+  "meta": {
+    "default-path": "O:\\MSC\\RELAXED"
+  }
+}
