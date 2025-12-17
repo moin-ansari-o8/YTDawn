@@ -1,0 +1,34 @@
+{
+  "audio": {
+    "links": [
+      {
+        "link": "https://youtu.be/example123",
+        "is_downloaded": true,
+        "format": "opus",
+        "path": "C:\\Music\\Downloads",
+        "title": "Example Music Track Title"
+      },
+      {
+        "link": "https://youtu.be/example456",
+        "is_downloaded": false,
+        "format": "mp3",
+        "path": "C:\\Music\\Downloads",
+        "title": "Another Example Track"
+      }
+    ]
+  },
+  "video": {
+    "links": [
+      {
+        "link": "https://youtu.be/example789",
+        "is_downloaded": true,
+        "format": "mp4",
+        "path": "C:\\Videos\\Downloads",
+        "title": "Example Video Title"
+      }
+    ]
+  },
+  "meta": {
+    "default-path": "C:\\Downloads"
+  }
+}

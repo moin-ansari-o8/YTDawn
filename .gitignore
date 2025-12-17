@@ -1,6 +1,9 @@
 # Downloads folder
 downloads/
 
+# User-specific download history (keep local only)
+downloads.json
+
 # Python
 __pycache__/
 *.py[cod]
